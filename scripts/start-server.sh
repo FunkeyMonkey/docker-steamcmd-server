@@ -223,6 +223,8 @@ cd ${SERVER_DIR}
 if [ "${ENABLE_VALHEIMPLUS}" == "true" ]; then
     echo "---with Valheim Plus---"
     export DOORSTOP_ENABLE=TRUE
+    export DOORSTOP_ENABLED=1
+    export DOORSTOP_TARGET_ASSEMBLY=${SERVER_DIR}/BepInEx/core/BepInEx.Preloader.dll
     export DOORSTOP_INVOKE_DLL_PATH=${SERVER_DIR}/BepInEx/core/BepInEx.Preloader.dll
     export DOORSTOP_CORLIB_OVERRIDE_PATH=${SERVER_DIR}/unstripped_corlib
     export LD_LIBRARY_PATH="${SERVER_DIR}/doorstop_libs":$LD_LIBRARY_PATH
@@ -245,6 +247,8 @@ elif [ "${ENABLE_BEPINEX}" == "true" ]; then
     echo "---https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/---"
     echo
     export DOORSTOP_ENABLE=TRUE
+    export DOORSTOP_ENABLED=1
+    export DOORSTOP_TARGET_ASSEMBLY=${SERVER_DIR}/BepInEx/core/BepInEx.Preloader.dll
     export DOORSTOP_INVOKE_DLL_PATH=${SERVER_DIR}/BepInEx/core/BepInEx.Preloader.dll
     export DOORSTOP_CORLIB_OVERRIDE_PATH=${SERVER_DIR}/unstripped_corlib
     export LD_LIBRARY_PATH="${SERVER_DIR}/doorstop_libs":$LD_LIBRARY_PATH
