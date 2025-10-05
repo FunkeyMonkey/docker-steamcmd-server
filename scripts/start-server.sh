@@ -65,4 +65,6 @@ echo "---Server ready---"
 
 echo "---Start Server---"
 cd ${SERVER_DIR}
+export LD_LIBRARY_PATH="${SERVER_DIR}"/bin/linuxsteamrt64:$LD_LIBRARY_PATH
+export USE_STEAM_RUNTIME=1
 ${SERVER_DIR}/game/bin/linuxsteamrt64/cs2 ${GAME_PARAMS}
