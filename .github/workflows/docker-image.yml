@@ -15,7 +15,7 @@ jobs:
 
       - name: Build Docker Image
         id: buildAndPushImage
-        uses: FunkeyMonkey/docker-steamcmd-server
+        uses: FunkeyMonkey/docker-steamcmd-server@latest
         with:
           registry_url: 'docker.io'
           repository_name: 'valheim'
