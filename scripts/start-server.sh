@@ -257,11 +257,11 @@ if [ "${ENABLE_VALHEIMPLUS}" == "true" ]; then
     export LD_LIBRARY_PATH=${SERVER_DIR}/linux64:"$LD_LIBRARY_PATH"
     export SteamAppId=892970
     if [ "${LOG_OUTPUT}" == "true" ]; then
-        wine64 ${SERVER_DIR}/valheim_server.x86_64 -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} | tee -a ${SERVER_DIR}/${LOG_FILE}
+       xvfb-run wine64 ${SERVER_DIR}/valheim_server.x86_64 -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} | tee -a ${SERVER_DIR}/${LOG_FILE}
     elif [ "${DEBUG_OUTPUT}" == "true" ]; then
-        wine64 ${SERVER_DIR}/valheim_server.x86_64 -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS}
+       xvfb-run wine64 ${SERVER_DIR}/valheim_server.x86_64 -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS}
     else
-        wine64 ${SERVER_DIR}/valheim_server.x86_64 -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} > /dev/null
+       xvfb-run wine64 ${SERVER_DIR}/valheim_server.x86_64 -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} > /dev/null
     fi
 elif [ "${ENABLE_BEPINEX}" == "true" ]; then
     echo "---with BepInEx for Valheim---"
@@ -281,18 +281,18 @@ elif [ "${ENABLE_BEPINEX}" == "true" ]; then
     export LD_LIBRARY_PATH=${SERVER_DIR}/linux64:"$LD_LIBRARY_PATH"
     export SteamAppId=892970
     if [ "${LOG_OUTPUT}" == "true" ]; then
-        wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} | tee -a ${SERVER_DIR}/${LOG_FILE}
+       xvfb-run wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} | tee -a ${SERVER_DIR}/${LOG_FILE}
     elif [ "${DEBUG_OUTPUT}" == "true" ]; then
-        wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS}
+       xvfb-run wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS}
     else
-       wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} > /dev/null
+      xvfb-run wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} > /dev/null
     fi
 else
     if [ "${LOG_OUTPUT}" == "true" ]; then
-       wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} | tee -a ${SERVER_DIR}/${LOG_FILE}
+      xvfb-run wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} | tee -a ${SERVER_DIR}/${LOG_FILE}
     elif [ "${DEBUG_OUTPUT}" == "true" ]; then
-       wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS}
+      xvfb-run wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS}
     else
-       wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} > /dev/null
+      xvfb-run wine64 ${SERVER_DIR}/valheim_server.exe -name "${SRV_NAME}" -port ${GAME_PORT} -world "${WORLD_NAME}" -password "${SRV_PWD}" -public ${PUBLIC} ${GAME_PARAMS} > /dev/null
     fi
 fi
